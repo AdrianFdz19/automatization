@@ -8,6 +8,8 @@ const Formulario = () => {
     correo: '',
   });
 
+  console.log(apiUrl);
+
   const [status, setStatus] = useState('');
 
   const handleChange = (e) => {
@@ -28,7 +30,7 @@ const Formulario = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({username: formData.nombre, email: formData.correo}),
       });
 
       if (response.ok) {
